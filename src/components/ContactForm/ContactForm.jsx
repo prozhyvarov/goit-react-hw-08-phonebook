@@ -6,7 +6,7 @@ import { addContactsThunk, getContactsThunk } from 'redux/contactsThunk';
 import Notiflix from 'notiflix';
 
 
-const ContactForm = () => {
+export const ContactForm = () => {
   const dispatch = useDispatch();
   const [contactName, setcontactName] = useState('');
   const [number, setNumber] = useState('');
@@ -92,5 +92,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
 

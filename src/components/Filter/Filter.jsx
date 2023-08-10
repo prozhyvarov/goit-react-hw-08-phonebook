@@ -3,7 +3,7 @@ import { FilterCont, Label, Input } from './Filter.styled';
 import { getFilter, setFilter } from 'redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
-function Filter() {
+export function Filter() {
 
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
@@ -22,4 +22,3 @@ function Filter() {
   );
 }
 
-export default Filter;

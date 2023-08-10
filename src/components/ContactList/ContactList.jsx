@@ -4,7 +4,7 @@ import { List, Item, Button } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { delContactsThunk } from 'redux/contactsThunk';
 
-const ContactList = () => {
+export const ContactList = () => {
   const dispatch = useDispatch();
   
   const contacts = useSelector(state => state.contacts.items);
@@ -40,4 +40,3 @@ const ContactList = () => {
   );
 };
 
-export default ContactList;
