@@ -5,7 +5,7 @@ import {
   logoutUser,
   signUpUser,
   token,
-} from '../../components/services/userApi';
+} from 'service/userApi';
 
 export const signUpThunk = createAsyncThunk(
   'auth/singUp',

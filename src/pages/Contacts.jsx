@@ -1,13 +1,13 @@
 import { ContactForm } from 'components/ContactForm/ContactForm';
+import css from '../components/App/App.module.css';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
-import { Container } from 'react-bootstrap';
 
 const { useEffect } = require('react');
 const { useDispatch, useSelector } = require('react-redux');
 const { getContactsThunk } = require('redux/contactsThunk');
 
-export const Contacts = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.items);
   const filtered = useSelector(state => state.filter);
@@ -21,12 +21,12 @@ export const Contacts = () => {
     dispatch(getContactsThunk);
   }, [dispatch]);
   return (
-    <Container>
+    <div className={css.container}>
       <ContactForm />
       <Filter />
       <ContactList listContact={filterContact()} />
-    </Container>
+    </div>
   );
 };
 
-
+export default Contacts;

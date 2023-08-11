@@ -1,42 +1,30 @@
-import React from 'react';
-
-import { List, Item, Button } from './ContactList.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import css from './ContactList.module.css';
+import { useDispatch } from 'react-redux';
 import { delContactsThunk } from 'redux/contactsThunk';
 
-export const ContactList = () => {
+export const ContactList = ({ listContact }) => {
   const dispatch = useDispatch();
-  
-  const contacts = useSelector(state => state.contacts.items);
-  const filtered = useSelector(state => state.filter);
-
-  const filterContact = () => {
-    const filteredContacts = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filtered.toLowerCase())
+  return listContact.map(cont => {
+    return (
+      <p key={cont.id} className={css.listItem}>
+        <span className={css.phone}>
+          {cont.name}: {cont.number}
+        </span>
+        <button
+          className={css.btn}
+          type="button"
+          onClick={() => {
+            dispatch(delContactsThunk(cont.id));
+          }}
+        >
+          Delete
+        </button>
+      </p>
     );
-    // console.log(filteredContacts);
-    return filteredContacts;
-  };
-
-  return (
-    <List>
-      {filterContact().map(({ id, name, phone }) => (
-        <Item key={id}>
-          {name + ' : ' + phone}
-          {
-            <Button
-              type="button"
-              name="delete"
-              onClick={() => {
-                dispatch(delContactsThunk(id));
-              }}
-            >
-              delete
-            </Button>
-          }
-        </Item>
-      ))}
-    </List>
-  );
+  });
 };
 
+ContactList.propTypes = {
+  listContact: PropTypes.array.isRequired,
+};

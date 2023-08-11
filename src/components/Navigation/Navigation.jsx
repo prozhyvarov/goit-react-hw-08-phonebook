@@ -1,11 +1,10 @@
-
-import InfoUser from 'components/UserInfo/userInfo';
+import InfoUser from 'components/InfoUser/InfoUser';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const { useSelector } = require('react-redux');
-const { selectToken, selectUser } = require('redux/user/userSelectors');
-
+const { selectToken, selectUser } = require('redux/user/userSelect');
+// const user = useSelector(selectUser);
 const Navigation = () => {
   const user = useSelector(selectUser);
   const token = useSelector(selectToken) ?? '';
