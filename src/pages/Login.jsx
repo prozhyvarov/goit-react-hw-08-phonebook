@@ -22,16 +22,6 @@ const Login = () => {
         throw new Error();
     }
   };
-  // const handleOnSubmit = evt => {
-  //   evt.preventDefault();
-  //   dispatch(loginThunk({ email, password }))
-  //     .unwrap()
-  //     .then(() => {
-  //       setEmail('');
-  //       setPassword('');
-  //     })
-  //     .catch(() => alert('Please enter all input'));
-  // };
 
   const handleOnSubmit = event => {
     event.preventDefault();

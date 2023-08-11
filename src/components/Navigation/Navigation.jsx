@@ -1,6 +1,7 @@
 import InfoUser from 'components/InfoUser/InfoUser';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { NavMain, NavLink } from './Navigation.styled';
 
 const { useSelector } = require('react-redux');
 const { selectToken, selectUser } = require('redux/user/userSelect');
@@ -8,28 +9,26 @@ const { selectToken, selectUser } = require('redux/user/userSelect');
 const Navigation = () => {
   const user = useSelector(selectUser);
   const token = useSelector(selectToken) ?? '';
-  console.log(user);
+
   return (
     <>
       <Navbar bg="black" variant="dark">
         <Container>
-          <Navbar.Brand href="/goit-react-hw-08-phonebook/contacts">
-            Phonebook
-          </Navbar.Brand>
+          <NavLink to="/">Phonebook</NavLink>
           {!user && (
-            <Nav className="me-auto">
+            <NavMain>
               {token && (
-                <Nav.Link to="/contacts" as={Link}>
+                <NavLink to="/contacts">
                   Contacts
-                </Nav.Link>
+                </NavLink>
               )}
-              <Nav.Link to="/signup" as={Link}>
+              <NavLink to="/signup">
                 Sign Up
-              </Nav.Link>
-              <Nav.Link to="/login" as={Link}>
+              </NavLink>
+              <NavLink to="/login">
                 Login
-              </Nav.Link>
-            </Nav>
+              </NavLink>
+            </NavMain>
           )}
 
           <InfoUser className="d-flex flex-column" />
@@ -39,7 +38,7 @@ const Navigation = () => {
         {user ? (
           <h1>Welcome {user.name} your contacts</h1>
         ) : (
-          <h1>Welcome guest please login</h1>
+          <h1>Welcome guest please login or sing up</h1>
         )}
       </Container>
     </>

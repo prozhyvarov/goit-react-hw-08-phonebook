@@ -8,6 +8,7 @@ import SignUp from 'pages/SignUp';
 import Login from 'pages/Login';
 import { PrivateRoute } from 'components/Private/PrivateRoute';
 import Contacts from 'pages/Contacts';
+import { Container } from '../App/App.styled';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Container>
       <Navigation />
       <Routes>
         <Route path="/" element={<PublicRoute />}>
@@ -27,7 +28,7 @@ export const App = () => {
           <Route path="/contacts" element={<Contacts />} />
         </Route>
       </Routes>
-    </>
+    </Container>
   );
 };
 

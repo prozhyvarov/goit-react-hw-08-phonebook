@@ -1,28 +1,31 @@
 import PropTypes from 'prop-types';
-import css from './ContactList.module.css';
+
 import { useDispatch } from 'react-redux';
 import { delContactsThunk } from 'redux/contactsThunk';
+import { Button, List, Item } from './ContactList.styled';
 
 export const ContactList = ({ listContact }) => {
   const dispatch = useDispatch();
-  return listContact.map(cont => {
-    return (
-      <p key={cont.id} className={css.listItem}>
-        <span className={css.phone}>
-          {cont.name}: {cont.number}
-        </span>
-        <button
-          className={css.btn}
-          type="button"
-          onClick={() => {
-            dispatch(delContactsThunk(cont.id));
-          }}
-        >
-          Delete
-        </button>
-      </p>
-    );
-  });
+  return (
+    <List>
+      {listContact.map(({ id, name, number }) => (
+        <Item key={id}>
+          {name + ' : ' + number}
+          {
+            <Button
+              type="button"
+              name="delete"
+              onClick={() => {
+                dispatch(delContactsThunk(id));
+              }}
+            >
+              delete
+            </Button>
+          }
+        </Item>
+      ))}
+    </List>
+  );
 };
 
 ContactList.propTypes = {

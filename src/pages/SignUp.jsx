@@ -1,4 +1,4 @@
-// import { Form } from 'react-router-dom';
+
 import { Button, Container, Form } from 'react-bootstrap';
 import { signUpThunk } from 'redux/user/userThunk';
 const { useDispatch } = require('react-redux');
@@ -77,7 +77,7 @@ const SignUp = () => {
           />
         </Form.Group>
         <Button bg="black" variant="dark" type="submit">
-          Log in
+          Sign up
         </Button>
       </Form>
     </Container>

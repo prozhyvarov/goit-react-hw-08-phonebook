@@ -1,7 +1,8 @@
 import { ContactForm } from 'components/ContactForm/ContactForm';
-import css from '../components/App/App.module.css';
+
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
+import { Container } from './Contacts.styled';
 
 const { useEffect } = require('react');
 const { useDispatch, useSelector } = require('react-redux');
@@ -21,11 +22,11 @@ const Contacts = () => {
     dispatch(getContactsThunk);
   }, [dispatch]);
   return (
-    <div className={css.container}>
+    <Container>
       <ContactForm />
       <Filter />
       <ContactList listContact={filterContact()} />
-    </div>
+    </Container>
   );
 };
 
