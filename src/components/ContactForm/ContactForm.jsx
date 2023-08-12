@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContactsThunk, getContactsThunk } from 'redux/contactsThunk';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import { Form, Input, Button } from './ContactForm.styled';
+import Notiflix from 'notiflix';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,8 @@ export const ContactForm = () => {
   return (
     <Form
       onSubmit={e => {
-        const notifly = () => toast(`${name} is alredy in contacts`);
+        const notifly = () =>
+          Notiflix.Notify.warning(`${name} is alredy in contacts`);
         const contact = {
           name: name,
           number: number,
@@ -61,13 +62,7 @@ export const ContactForm = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        pauseOnHover
-        theme="dark"
-      />
+     
       <Button type="submit">
         Add
       </Button>

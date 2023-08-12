@@ -1,4 +1,6 @@
-const { Button } = require('react-bootstrap');
+
+import { Button } from './InfoUser.styled';
+
 const { useSelector, useDispatch } = require('react-redux');
 const { selectUser } = require('redux/user/userSelect');
 const { logoutThunk } = require('redux/user/userThunk');
@@ -12,17 +14,13 @@ const InfoUser = () => {
   return (
     <div>
       {user && (
-        <div className=" d-flex gap=10">
-          {/* <h4 className="text-light ">Welcome, {user.name}</h4> */}
+        
           <Button
-            bg="black"
-            variant="dark"
-            className="d-flex "
             onClick={handleSubmit}
           >
             Log Out
           </Button>
-        </div>
+    
       )}
     </div>
   );

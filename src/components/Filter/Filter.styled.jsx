@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const FilterCont = styled.div`
+display:flex;
+justify-content:center;
+align-items: center;
   margin-bottom: 15px;
 `;
 
 export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #000;
   font-size: 20px;
 `;

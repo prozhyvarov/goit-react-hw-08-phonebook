@@ -24,8 +24,10 @@ const Contacts = () => {
   return (
     <Container>
       <ContactForm />
-      <Filter />
-      <ContactList listContact={filterContact()} />
+      <div>
+        <Filter />
+        <ContactList listContact={filterContact()} />
+      </div>
     </Container>
   );
 };

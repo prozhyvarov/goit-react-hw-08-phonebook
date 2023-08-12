@@ -1,13 +1,16 @@
-import { useDispatch } from 'react-redux';
-import { refreshUserThunk } from 'redux/user/userThunk';
 import { useEffect } from 'react';
-import Navigation from 'components/Navigation/Navigation';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { refreshUserThunk } from 'redux/user/userThunk';
 import { PublicRoute } from 'components/Public/PublicRoute';
-import SignUp from 'pages/SignUp';
-import Login from 'pages/Login';
 import { PrivateRoute } from 'components/Private/PrivateRoute';
-import Contacts from 'pages/Contacts';
+
+import Navigation from 'components/Navigation/Navigation';
+import SignUp from 'pages/SingUp/SignUp';
+import Login from 'pages/Login/Login';
+import Contacts from 'pages/Contacts/Contacts';
+
 import { Container } from '../App/App.styled';
 
 export const App = () => {

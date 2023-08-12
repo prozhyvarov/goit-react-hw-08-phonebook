@@ -1,46 +1,45 @@
 import InfoUser from 'components/InfoUser/InfoUser';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { NavMain, NavLink } from './Navigation.styled';
+
+import {
+  NavMain,
+  NavLink,
+  NavLinkMain,
+  Container,
+  NavUserAuth,
+  TextContainer,
+} from './Navigation.styled';
 
 const { useSelector } = require('react-redux');
 const { selectToken, selectUser } = require('redux/user/userSelect');
-// const user = useSelector(selectUser);
+
 const Navigation = () => {
   const user = useSelector(selectUser);
+
   const token = useSelector(selectToken) ?? '';
 
   return (
     <>
-      <Navbar bg="black" variant="dark">
+      <NavMain>
         <Container>
-          <NavLink to="/">Phonebook</NavLink>
+          <NavLinkMain to="/">Phonebook</NavLinkMain>
           {!user && (
-            <NavMain>
-              {token && (
-                <NavLink to="/contacts">
-                  Contacts
-                </NavLink>
-              )}
-              <NavLink to="/signup">
-                Sign Up
-              </NavLink>
-              <NavLink to="/login">
-                Login
-              </NavLink>
-            </NavMain>
+            <NavUserAuth>
+              {token && <NavLink to="/contacts">Contacts</NavLink>}
+              <NavLink to="/signup">Sign Up</NavLink>
+              <NavLink to="/login">Login</NavLink>
+            </NavUserAuth>
           )}
 
-          <InfoUser className="d-flex flex-column" />
+          <InfoUser/>
         </Container>
-      </Navbar>
-      <Container className="align-items-center d-flex flex-column justify-content-center">
+      </NavMain>
+      <TextContainer>
         {user ? (
-          <h1>Welcome {user.name} your contacts</h1>
+          <h1>Hello {user.name}! Welcome to your contacts.</h1>
         ) : (
-          <h1>Welcome guest please login or sing up</h1>
+          <h1>Welcome guest! Please login or sing up.</h1>
         )}
-      </Container>
+      </TextContainer>
     </>
   );
 };
