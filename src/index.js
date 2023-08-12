@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { App } from 'components/App/App';
-import './index.css';
 import { Provider } from 'react-redux';
 import { store, persistR } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
