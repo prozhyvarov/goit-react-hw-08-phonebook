@@ -14,13 +14,11 @@ const InfoUser = () => {
   return (
     <div>
       {user && (
-        
           <Button
             onClick={handleSubmit}
           >
             Log Out
           </Button>
-    
       )}
     </div>
   );
