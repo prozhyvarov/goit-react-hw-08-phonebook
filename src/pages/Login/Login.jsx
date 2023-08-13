@@ -5,7 +5,7 @@ const { useState } = require('react');
 const { useDispatch } = require('react-redux');
 const { loginThunk } = require('redux/user/userThunk');
 
-const Login = () => {
+const  Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
