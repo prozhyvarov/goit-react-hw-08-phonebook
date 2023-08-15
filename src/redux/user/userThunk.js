@@ -8,11 +8,12 @@ import {
 } from 'service/userApi';
 
 export const signUpThunk = createAsyncThunk(
-  'auth/singUp',
+  'auth/register',
   async (credentials, { rejectWithValue }) => {
     try {
-      const {user} = await signUpUser(credentials);
-      return user;
+      const data = await signUpUser(credentials);
+      token.set(data.token);
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
