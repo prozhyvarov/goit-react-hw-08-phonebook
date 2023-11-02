@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-08-phonebook",
+  "name": "goit-rent-cars",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://prozhyvarov.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://prozhyvarov.github.io/goit-rent-cars/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.3",
@@ -17,6 +17,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.7",
     "react-toastify": "^9.1.2",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.10",

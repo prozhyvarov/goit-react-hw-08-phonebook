@@ -1,41 +1,28 @@
-import { Suspense, lazy, useEffect } from 'react';
+import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
-import { refreshUserThunk } from 'redux/user/userThunk';
-import { PublicRoute } from 'components/Public/PublicRoute';
-import { PrivateRoute } from 'components/Private/PrivateRoute';
 
-// import SignUp from '../../pages/SingUp/SignUp';
-// import Login from '../../pages/Login/Login';
-// import Contacts from '../../pages/Contacts/Contacts';
 
 import Navigation from 'components/Navigation/Navigation';
 
 import { Container } from '../App/App.styled';
+import HomePage from 'pages/HomePage/Homepage';
+import Catalog from 'pages/Catalog/Catalog';
+import Favorites from 'pages/Favotites/Favorites';
 
-const SignUp = lazy(() => import('../../pages/SingUp/SignUp'));
-const Login = lazy(() => import('../../pages/Login/Login'));
-const Contacts = lazy(() => import('../../pages/Contacts/Contacts'));
+// const SignUp = lazy(() => import('../../pages/SingUp/SignUp'));
+// const Login = lazy(() => import('../../pages/Login/Login'));
+// const Contacts = lazy(() => import('../../pages/Contacts/Contacts'));
 
 export const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(refreshUserThunk());
-  }, [dispatch]);
-
   return (
     <Container>
       <Suspense>
         <Navigation />
         <Routes>
-          <Route path="/" element={<PublicRoute />}>
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
-          </Route>
-          <Route path="/" element={<PrivateRoute />}>
-            <Route path="/contacts" element={<Contacts />} />
-          </Route>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/catalog" element={<Catalog />}></Route>
+          <Route path="/favorites" element={<Favorites />}></Route>
         </Routes>
       </Suspense>
     </Container>
